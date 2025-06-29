@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import NavBar from "@/ui/navbar";
+import Header from "@/components/layout/header";
 import "./globals.css";
 import "@mantine/core/styles.css";
 import { Inter } from "next/font/google";
@@ -29,7 +29,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <MantineProvider>
-          <NavBar />
+          <Header />
           {children}
         </MantineProvider>
       </body>

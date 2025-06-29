@@ -1,12 +1,12 @@
 import { Center } from "@mantine/core";
 import { Montserrat } from "next/font/google";
-import Button from "./button";
+import Button from "../ui/button";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export default function Hero() {
   return (
-    <section className="bg-linear-135 from-secondary to-primary min-h-screen px-32 py-48 md:py-60 text-center">
+    <section className="bg-linear-135 from-secondary to-azure min-h-screen px-32 py-48 md:py-60 text-center">
       <Center>
         <div className="">
           <h1
