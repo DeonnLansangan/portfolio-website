@@ -1,5 +1,6 @@
-import MemberCard from "../ui/memberCard";
+import MemberCard from "../cards/memberCard";
 import { Montserrat } from "next/font/google";
+import Head from "../ui/head";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -27,14 +28,10 @@ const memberList = [
 ];
 export default function Members() {
   return (
-    <section className="bg-gray-200">
-      <h2
-        className={`text-4xl pt-12 font-bold text-center ${montserrat.className}`}
-      >
-        Meet the Team
-      </h2>
+    <section className={`py-12 bg-gray-200 ${montserrat.className}`}>
+      <Head>Meet the Team</Head>
       <div
-        className={`p-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 place-items-center gap-12 ${montserrat.className}`}
+        className={`p-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 place-items-center gap-12`}
       >
         {memberList.map((member) => (
           <MemberCard

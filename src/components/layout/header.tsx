@@ -14,12 +14,12 @@ import {
 const navLinks = [
   { label: "Home", href: "/", icon: <HomeIcon className="size-6" /> },
   {
-    label: "About",
+    label: "About Us",
     href: "/aboutUs",
     icon: <UserGroupIcon className="size-6" />,
   },
   {
-    label: "Contact",
+    label: "Contact Us",
     href: "/contact",
     icon: <EnvelopeIcon className="size-6" />,
   },
@@ -55,6 +55,7 @@ export default function NavBar() {
                 <Image
                   src="/logos/website-logo.png"
                   alt="Portfolio Website Logo"
+                  sizes="100%"
                   fill
                   className="object-contain"
                 />

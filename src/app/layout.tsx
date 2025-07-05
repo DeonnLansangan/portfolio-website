@@ -8,6 +8,7 @@ import {
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
+import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "Portfolio Website",
@@ -31,6 +32,7 @@ export default function RootLayout({
         <MantineProvider>
           <Header />
           {children}
+          <Footer />
         </MantineProvider>
       </body>
     </html>
