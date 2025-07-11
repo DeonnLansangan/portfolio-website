@@ -34,7 +34,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="grid grid-cols-1 px-8 pb-12 xs:grid-cols-2 xs:place-items-center md:grid-cols-3 md:pt-4 md:px-24 lg:px-50">
+    <footer className="grid grid-cols-1 px-8 pb-12 xs:grid-cols-2 xs:place-items-center md:grid-cols-3 md:pt-4 md:px-24 lg:px-50 xl:px-80">
       {footerSections.map(({ title, items, hrefs }) => (
         <FooterItem key={title} title={title}>
           {items.map((item, index) => (

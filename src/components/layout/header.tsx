@@ -1,17 +1,23 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { AnimatedProgress } from "@/utils/animatedProgress";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { useEffect, useState } from "react";
-import { Burger, Drawer, Flex, NavLink, Progress, Text } from "@mantine/core";
+import { Burger, Drawer, Flex, NavLink, Text } from "@mantine/core";
 import {
+  BriefcaseIcon,
   ChevronRightIcon,
+  DocumentCheckIcon,
   EnvelopeIcon,
   HomeIcon,
+  PuzzlePieceIcon,
+  UserIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 
-const navLinks = [
+const defaultNavLinks = [
   { label: "Home", href: "/", icon: <HomeIcon className="size-6" /> },
   {
     label: "About Us",
@@ -25,28 +31,47 @@ const navLinks = [
   },
 ];
 
-function AnimatedProgress({
-  transitionDuration = 300,
-}: {
-  transitionDuration?: number;
-}) {
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    const timeout = setTimeout(() => setValue(100), 10);
-    return () => clearTimeout(timeout);
-  }, []);
-  return (
-    <Progress size="xs" value={value} transitionDuration={transitionDuration} />
-  );
-}
+const profileNavLinks = [
+  { label: "Home", href: "/", icon: <HomeIcon className="size-6" /> },
+  {
+    label: "About Me",
+    href: "/",
+    icon: <UserIcon className="size-6" />,
+  },
+  {
+    label: "Skills",
+    href: "/",
+    icon: <PuzzlePieceIcon className="size-6" />,
+  },
+  {
+    label: "Experience",
+    href: "/",
+    icon: <BriefcaseIcon className="size-6" />,
+  },
+  {
+    label: "Projects",
+    href: "/",
+    icon: <DocumentCheckIcon className="size-6" />,
+  },
+  {
+    label: "Contact Me",
+    href: "/",
+    icon: <EnvelopeIcon className="size-6" />,
+  },
+];
 
 export default function NavBar() {
   const [isOpen, { toggle }] = useDisclosure();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const isMobile = useMediaQuery("(max-width: 30em)");
+  const pathName = usePathname();
+
+  const navLinks = pathName.includes("/profile")
+    ? profileNavLinks
+    : defaultNavLinks;
 
   return (
-    <header className="bg-white w-full shadow-sm top-0 z-40 mx-auto px-4 md:px-10 lg:px-18 xl:px-24 py-1 md:py-2">
+    <header className="bg-white w-full shadow-sm top-0 z-40 mx-auto px-4 sticky md:px-10 lg:px-18 xl:px-24 py-1 md:py-2">
       <Flex align="center" justify="space-between">
         <div className="cursor-pointer relative">
           <Link href="/">
@@ -72,7 +97,7 @@ export default function NavBar() {
         <Flex columnGap="xl" visibleFrom="md">
           {navLinks.map((link, index) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
               className="transition duration-300 hover:text-primary-500"
               onMouseOver={() => setHoveredIndex(index)}
@@ -106,7 +131,7 @@ export default function NavBar() {
         >
           {navLinks.map((link) => (
             <NavLink
-              key={link.href}
+              key={link.label}
               component={Link}
               href={link.href}
               label={link.label}

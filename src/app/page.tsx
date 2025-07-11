@@ -3,10 +3,10 @@ import Members from "@/components/layout/members";
 import Projects from "@/components/layout/projects";
 export default function Home() {
   return (
-    <>
+    <div>
       <Hero />
       <Members />
       <Projects />
-    </>
+    </div>
   );
 }
