@@ -19,10 +19,38 @@ export const memberList = [
       { skillId: 10, order: 10 },
       { skillId: 2, order: 11 },
       { skillId: 1, order: 12 },
-      { skillId: 29, order: 13 },
-      { skillId: 8, order: 14 },
-      { skillId: 6, order: 15 },
-      { skillId: 7, order: 16 },
+      { skillId: 31, order: 13 },
+      { skillId: 32, order: 14 },
+      { skillId: 29, order: 15 },
+      { skillId: 8, order: 16 },
+      { skillId: 6, order: 17 },
+      { skillId: 7, order: 18 },
+    ],
+    experience: [
+      {
+        title: "Full Stack Developer",
+        company: "Fullstack HQ",
+        startDate: new Date("2025-05-05"),
+        endDate: "Present",
+        description:
+          "• Developed websites for multiple clients using different frameworks such as React, Express, and Laravel.",
+      },
+      {
+        title: "Full Stack Developer Intern",
+        company: "Holy Angel University - Angeles City",
+        startDate: new Date("2024-11-20"),
+        endDate: new Date("2025-03-19"),
+        description:
+          "• Created a website using the Laravel framework that streamlined database management by 60% for the university.\n\n• Used leadership skills to lead a team of fellow interns in accomplishing tasks while meeting strict deadlines. \n\n • Removed the need for manual labor in gathering board exam results by utilizing cloud services and implementing a system that scanned exam results, added them to a MySQL database, and converted them to Excel files.",
+      },
+      {
+        title: "Machine Learning Engineer (Thesis)",
+        company: null,
+        startDate: new Date("2023-07-01"),
+        endDate: new Date("2024-10-01"),
+        description:
+          "• Developed a sentiment analysis browser extension for Twitter that uses a hybrid machine learning model to detect and filter negative tweets in real time.\n\n• Utilized Python and multiple libraries like scikit-learn, Keras, and TensorFlow to train Support Vector Machine and Long Short-Term Memory models in Google Colab.\n\n• Deployed a Flask API on AWS that classified real-time tweet data from the browser extension using the trained hybrid model.",
+      },
     ],
   },
   {
@@ -43,6 +71,24 @@ export const memberList = [
       { skillId: 21, order: 8 },
       { skillId: 18, order: 9 },
       { skillId: 24, order: 10 },
+    ],
+    experience: [
+      {
+        title: "Intern Cloud Engineer",
+        company: "Achieve Without Borders, Inc.",
+        startDate: new Date("2024-12-01"),
+        endDate: new Date("2025-03-01"),
+        description:
+          "- Configured and managed database replication using PostgreSQL to enhance data availability and reliability.\n- Worked with Linux (Ubuntu) as the primary operating system for server configurations.\n- Monitored and assessed cloud instances on Google Cloud Platform (GCP) and Odoo.sh to ensure performance and uptime.\n- Created and distributed monitoring reports for clients, providing analysis, instance status updates, and optimization recommendations.\n- Utilized Google Workspace for documentation, collaboration, and workflow management.",
+      },
+      {
+        title: "Undergraduate Thesis",
+        company: null,
+        startDate: new Date("2023-07-01"),
+        endDate: new Date("2024-10-01"),
+        description:
+          "Developed a sentiment analysis browser extension for Twitter that uses a hybrid machine learning model to detect and filter negative tweets in real time.",
+      },
     ],
   },
   {
@@ -67,6 +113,47 @@ export const memberList = [
       { skillId: 9, order: 12 },
       { skillId: 10, order: 13 },
     ],
+    experience: [
+      {
+        title: "Full Stack Developer",
+        company: "Holy Angel University - Angeles City",
+        startDate: new Date("2024-11-20"),
+        endDate: new Date("2025-03-19"),
+        description:
+          "Created a website using the Laravel framework that streamlined database management by 60% for the university.",
+      },
+      {
+        title: "Freelance Copywriter",
+        company: "The Bookkeepers Secret Academy, Rankfinity Consulting",
+        startDate: new Date("2024-05-01"),
+        endDate: new Date("2024-09-01"),
+        description:
+          "Developed high-converting copies and strategies for businesses across multiple platforms.\n\nCrafted compelling copies for Facebook ads, email campaigns, landing pages and sales pages, driving increased engagement and conversions.",
+      },
+      {
+        title: "Apprentice Copywriter",
+        company: "Copywriting Dojo",
+        startDate: new Date("2024-04-01"),
+        endDate: new Date("2024-07-01"),
+        description: "Crafted contents for email campaigns and landing pages.",
+      },
+      {
+        title: "Software Developer",
+        company: null,
+        startDate: new Date("2023-07-01"),
+        endDate: new Date("2024-10-01"),
+        description:
+          "Developed a sentiment analysis browser extension for Twitter that uses a hybrid machine learning model to detect and filter negative tweets in real time.",
+      },
+      {
+        title: "Writer (The Access Point Publication)",
+        company: "Holy Angel University - The School of Computing",
+        startDate: new Date("2021-08-01"),
+        endDate: new Date("2024-02-01"),
+        description:
+          "A departmental based work tasked in providing writeups in every event held in Holy Angel University - The School of Computing for magazines.",
+      },
+    ],
   },
   {
     id: 4,
@@ -85,6 +172,24 @@ export const memberList = [
       { skillId: 13, order: 7 },
       { skillId: 12, order: 8 },
       { skillId: 21, order: 9 },
+    ],
+    experience: [
+      {
+        title: "Full Stack Developer",
+        company: "Holy Angel University - Angeles City",
+        startDate: new Date("2024-11-20"),
+        endDate: new Date("2025-03-19"),
+        description:
+          "Created a website using the Laravel framework that streamlined database management by 60% for the university.",
+      },
+      {
+        title: "Software Developer",
+        company: null,
+        startDate: new Date("2023-07-01"),
+        endDate: new Date("2024-10-01"),
+        description:
+          "Developed a sentiment analysis plug-in for Twitter that uses machine learning models to detect and filter negative tweets in real-time.",
+      },
     ],
   },
 ];

@@ -5,16 +5,25 @@ export interface Skill {
   category: string[];
 }
 
-export interface UserSkill {
-  skillId: number;
-  order: number;
-}
-
 export interface Member {
   id: number;
   name: string;
   username: string;
   profilePicture: string;
   description: string;
-  skills: UserSkill[];
+  skills: MemberSkill[];
+  experience: MemberExperience[];
+}
+
+export interface MemberSkill {
+  skillId: number;
+  order: number;
+}
+
+export interface MemberExperience {
+  title: string;
+  company: string | null;
+  startDate: Date;
+  endDate: Date | "Present";
+  description: string;
 }

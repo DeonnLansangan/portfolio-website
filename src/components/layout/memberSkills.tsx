@@ -1,15 +1,10 @@
 "use client";
 
-import Head from "../ui/head";
-import { useMemberStore } from "@/store/memberStore";
-import { skillList } from "@/data/skillList";
-import Skill from "../ui/skill";
 import { Tabs } from "@mantine/core";
-
-const getGridColsClass = (count: number) => {
-  const cols = Math.ceil(count / 2);
-  return `md:grid-cols-${Math.min(cols, 6)}`;
-};
+import { skillList } from "@/data/skillList";
+import { useMemberStore } from "@/store/memberStore";
+import Head from "../ui/head";
+import Skill from "../ui/skill";
 
 export default function MemberSkills() {
   const member = useMemberStore((state) => state.member);
