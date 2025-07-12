@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" {...mantineHtmlProps}>
+    <html className="scroll-smooth" lang="en" {...mantineHtmlProps}>
       <head>
         <ColorSchemeScript />
       </head>

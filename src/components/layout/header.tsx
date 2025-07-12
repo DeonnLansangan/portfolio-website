@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatedProgress } from "@/utils/animatedProgress";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { Burger, Drawer, Flex, NavLink, Text } from "@mantine/core";
+import { useMemberStore } from "@/store/memberStore";
 import {
   BriefcaseIcon,
   ChevronRightIcon,
@@ -17,54 +18,58 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 
-const defaultNavLinks = [
-  { label: "Home", href: "/", icon: <HomeIcon className="size-6" /> },
-  {
-    label: "About Us",
-    href: "/aboutUs",
-    icon: <UserGroupIcon className="size-6" />,
-  },
-  {
-    label: "Contact Us",
-    href: "/contact",
-    icon: <EnvelopeIcon className="size-6" />,
-  },
-];
-
-const profileNavLinks = [
-  { label: "Home", href: "/", icon: <HomeIcon className="size-6" /> },
-  {
-    label: "About Me",
-    href: "/",
-    icon: <UserIcon className="size-6" />,
-  },
-  {
-    label: "Skills",
-    href: "/",
-    icon: <PuzzlePieceIcon className="size-6" />,
-  },
-  {
-    label: "Experience",
-    href: "/",
-    icon: <BriefcaseIcon className="size-6" />,
-  },
-  {
-    label: "Projects",
-    href: "/",
-    icon: <DocumentCheckIcon className="size-6" />,
-  },
-  {
-    label: "Contact Me",
-    href: "/",
-    icon: <EnvelopeIcon className="size-6" />,
-  },
-];
-
 export default function NavBar() {
   const [isOpen, { toggle }] = useDisclosure();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const isMobile = useMediaQuery("(max-width: 30em)");
   const pathName = usePathname();
+
+  const member = useMemberStore((state) => state.member);
+  const username = member?.username;
+  const profileLink = `/profile/${username}`;
+
+  const defaultNavLinks = [
+    { label: "Home", href: "/", icon: <HomeIcon className="size-6" /> },
+    {
+      label: "About Us",
+      href: "/aboutUs",
+      icon: <UserGroupIcon className="size-6" />,
+    },
+    {
+      label: "Contact Us",
+      href: "/contact",
+      icon: <EnvelopeIcon className="size-6" />,
+    },
+  ];
+
+  const profileNavLinks = [
+    { label: "Home", href: "/", icon: <HomeIcon className="size-6" /> },
+    {
+      label: "About Me",
+      href: `${profileLink}#about`,
+      icon: <UserIcon className="size-6" />,
+    },
+    {
+      label: "Skills",
+      href: `${profileLink}#skills`,
+      icon: <PuzzlePieceIcon className="size-6" />,
+    },
+    {
+      label: "Experience",
+      href: `${profileLink}#experience`,
+      icon: <BriefcaseIcon className="size-6" />,
+    },
+    {
+      label: "Projects",
+      href: `${profileLink}#projects`,
+      icon: <DocumentCheckIcon className="size-6" />,
+    },
+    {
+      label: "Contact Me",
+      href: `${profileLink}#contact`,
+      icon: <EnvelopeIcon className="size-6" />,
+    },
+  ];
 
   const navLinks = pathName.includes("/profile")
     ? profileNavLinks

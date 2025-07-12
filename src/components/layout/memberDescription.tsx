@@ -2,19 +2,18 @@
 import Button from "@/components/ui/button";
 import ProfilePicture from "@/components/ui/profilePicture";
 import { useMediaQuery } from "@mantine/hooks";
+import { useMemberStore } from "@/store/memberStore";
 
-interface Member {
-  id: number;
-  name: string;
-  userName: string;
-  profilePicture: string;
-  description: string;
-}
+export default function MemberDescription() {
+  const isLargeScreen = useMediaQuery("(min-width: 75em", false);
+  const member = useMemberStore((state) => state.member);
+  if (!member) return null;
 
-export default function MemberDescription({ member }: { member: Member }) {
-  const isLargeScreen = useMediaQuery("(min-width: 75em");
   return (
-    <section className="grid grid-cols-1 place-items-center mt-8 md:px-8 xl:grid-cols-3 xl:pt-28">
+    <section
+      id="about"
+      className="bg-gray-100 grid grid-cols-1 place-items-center pt-16 pb-44 md:pb-56 md:px-8 md:pt-20 lg:pb-64 xl:pb-96 xl:pt-48 xl:grid-cols-3 "
+    >
       <div className="lg:place-self-center xl:place-self-end xl:mr-8">
         <ProfilePicture
           name={member.name}

@@ -13,12 +13,7 @@ export default function Members() {
         className={`p-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 place-items-center gap-12`}
       >
         {memberList.map((member) => (
-          <MemberCard
-            key={member.id}
-            name={member.name}
-            userName={member.userName}
-            profilePicture={member.profilePicture}
-          />
+          <MemberCard key={member.id} member={member} />
         ))}
       </div>
     </section>
