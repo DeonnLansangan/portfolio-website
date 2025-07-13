@@ -1,5 +1,5 @@
 "use client";
-import Head from "../ui/head";
+import Head from "../../ui/head";
 import { Fragment } from "react";
 import { Timeline } from "@mantine/core";
 import { useMemberStore } from "@/store/memberStore";
@@ -41,8 +41,8 @@ export default function MemberExperience() {
                 )}
                 <p className="text-base mb-2 font-medium">
                   {getMonthFromDate(startDate)} {startDate.getFullYear()} -{" "}
-                  {endDate === "Present"
-                    ? "Present"
+                  {typeof endDate === "string"
+                    ? endDate
                     : getMonthFromDate(endDate) + " " + endDate.getFullYear()}
                 </p>
                 <p className="text-sm/6">

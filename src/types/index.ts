@@ -24,6 +24,16 @@ export interface MemberExperience {
   title: string;
   company: string | null;
   startDate: Date;
-  endDate: Date | "Present";
+  endDate: Date | string;
   description: string;
+}
+
+export interface Project {
+  id: number;
+  name: string;
+  logo: string;
+  description: string;
+  color: "primary" | "secondary" | "maroon";
+  priority: boolean;
+  createdBy: number[];
 }

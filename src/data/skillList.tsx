@@ -94,7 +94,7 @@ export const skillList: Skill[] = [
   {
     id: 16,
     name: "Character Design",
-    path: "/logos/adobePhotoshop.png",
+    path: "/logos/characterDesign.png",
     category: ["🎨 Design & Creative Tools"],
   },
   {
