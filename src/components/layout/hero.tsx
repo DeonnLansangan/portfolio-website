@@ -18,7 +18,7 @@ export default function Hero() {
             Discover our innovative projects and meet the passionate team
             driving our success. Dive in to explore our work and achievements!
           </p>
-          <Button color="secondary" type="inverted">
+          <Button color="secondary" hover="inverted">
             Learn More
           </Button>
         </div>

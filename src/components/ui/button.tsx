@@ -1,13 +1,19 @@
 export default function Button({
   children,
   color,
-  type,
+  hover,
+  type = "button",
+  handleClick,
+  ...props
 }: {
   children: React.ReactNode;
   color: "primary" | "secondary" | "maroon";
-  type: "inverted" | "tinted";
+  hover: "inverted" | "tinted";
+  type?: "submit" | "button";
+  handleClick?: () => Promise<void>;
+  [key: string]: any;
 }) {
-  const typeClasses = {
+  const hoverClasses = {
     inverted: {
       primary: "bg-primary hover:text-primary hover:bg-white",
       secondary: "bg-secondary hover:text-secondary hover:bg-white",
@@ -22,7 +28,11 @@ export default function Button({
 
   return (
     <button
-      className={`${typeClasses[type][color]} text-white shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 px-8 py-3 rounded-3xl cursor-pointer`}
+      className={`${hoverClasses[hover][color]} text-white shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 px-8 py-3 rounded-3xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}
+      onClick={handleClick}
+      type={type}
+      disabled={props.disabled}
+      {...props}
     >
       <span className="font-bold">{children}</span>
     </button>

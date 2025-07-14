@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import "./globals.css";
 import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 import { Inter } from "next/font/google";
 import {
   ColorSchemeScript,
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
@@ -30,6 +32,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <MantineProvider>
+          <Notifications />
           <Header />
           {children}
           <Footer />

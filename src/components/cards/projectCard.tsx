@@ -35,7 +35,7 @@ export default function ProjectCard({
         {description}
       </p>
       <div className="absolute bottom-15">
-        <Button color={color} type="tinted">
+        <Button color={color} hover="tinted">
           Learn More
         </Button>
       </div>

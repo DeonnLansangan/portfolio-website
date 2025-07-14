@@ -11,6 +11,8 @@ export interface Member {
   username: string;
   profilePicture: string;
   description: string;
+  email: string | null;
+  linkedIn: string | null;
   skills: MemberSkill[];
   experience: MemberExperience[];
 }

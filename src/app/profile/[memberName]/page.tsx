@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import MemberSkills from "@/components/layout/memberPage/memberSkills";
 import MemberExperience from "@/components/layout/memberPage/memberExperience";
 import MemberProjects from "@/components/layout/memberPage/memberProjects";
+import MemberContact from "@/components/layout/memberPage/memberContact";
 
 export default async function MemberPage({
   params,
@@ -22,6 +23,7 @@ export default async function MemberPage({
       <MemberSkills />
       <MemberExperience />
       <MemberProjects />
+      <MemberContact />
     </MemberProvider>
   );
 }

@@ -28,7 +28,7 @@ export default function MemberDescription() {
         <p className="text-base/8 mb-4 px-8 xl:pl-0 xl:pr-40">
           {member.description}
         </p>
-        <Button type="tinted" color="primary">
+        <Button hover="tinted" color="primary">
           View Resume
         </Button>
       </div>

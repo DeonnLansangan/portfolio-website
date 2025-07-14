@@ -8,7 +8,7 @@ export default function NotFound() {
       <FaceFrownIcon className="w-10 text-gray-400" />
       <h2 className="text-xl font-semibold">404 Not Found</h2>
       <p>Could not find the requested page.</p>
-      <Button color="primary" type="tinted">
+      <Button color="primary" hover="tinted">
         <Link href="/">Go Back</Link>
       </Button>
     </main>

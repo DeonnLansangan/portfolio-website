@@ -12,20 +12,20 @@ export default function MemberSkills() {
   const allTabRef = useRef<HTMLDivElement>(null);
   const [minHeight, setMinHeight] = useState(0);
 
-  if (!member) return null;
-
-  const skillsWithMeta = member.skills
-    .map((userSkill) => {
-      const matchedSkill = skillList.find(
-        (skill) => skill.id === userSkill.skillId
-      );
-      if (!matchedSkill) return null;
-      return {
-        ...matchedSkill,
-        order: userSkill.order,
-      };
-    })
-    .filter((skill): skill is NonNullable<typeof skill> => skill !== null);
+  const skillsWithMeta = member?.skills
+    ? member.skills
+        .map((userSkill) => {
+          const matchedSkill = skillList.find(
+            (skill) => skill.id === userSkill.skillId
+          );
+          if (!matchedSkill) return null;
+          return {
+            ...matchedSkill,
+            order: userSkill.order,
+          };
+        })
+        .filter((skill): skill is NonNullable<typeof skill> => skill !== null)
+    : [];
 
   const sortedSkills = skillsWithMeta.sort((a, b) => a.order - b.order);
 
@@ -51,6 +51,8 @@ export default function MemberSkills() {
 
     return () => window.removeEventListener("resize", measureHeight);
   }, [sortedSkills]);
+
+  if (!member) return null;
 
   return (
     <section
