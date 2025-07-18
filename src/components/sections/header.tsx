@@ -71,7 +71,7 @@ export default function NavBar() {
     },
   ];
 
-  const navLinks = pathName.includes("/profile")
+  const navLinks = pathName.includes(profileLink)
     ? profileNavLinks
     : defaultNavLinks;
 

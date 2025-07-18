@@ -1,6 +1,6 @@
-import Hero from "@/components/layout/hero";
-import Members from "@/components/layout/members";
-import Projects from "@/components/layout/projects";
+import Hero from "@/components/sections/hero";
+import Members from "@/components/sections/members";
+import Projects from "@/components/sections/projects";
 export default function Home() {
   return (
     <div>

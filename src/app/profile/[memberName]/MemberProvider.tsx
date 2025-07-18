@@ -14,7 +14,7 @@ export default function MemberProvider({
 
   useEffect(() => {
     setMember(member);
-  }, [member]);
+  }, [member, setMember]);
 
   return <>{children}</>;
 }

@@ -30,7 +30,7 @@ export function EmailTemplate({ name, email, message }: EmailTemplateProps) {
       </Text>
       <Text className="text-base text-gray-500 leading-[24px]">Good day,</Text>
       <Text className="text-base text-gray-500 leading-[24px]">
-        A new message has been sent to you through our portfolio website's
+        A new message has been sent to you through our portfolio website&apos;s
         contact forms. The details are below:
       </Text>
       <Section className="bg-gray-100 p-4 rounded-xl">

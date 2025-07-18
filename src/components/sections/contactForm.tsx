@@ -14,9 +14,9 @@ const initialState = {
 
 export default function ContactForm({ member }: { member: Member }) {
   const wrappedSendEmail = async (
-    prevState: any,
+    prevState: { message: string },
     formData: FormData
-  ): Promise<any> => {
+  ): Promise<{ message: string }> => {
     return sendEmail(prevState, formData, member);
   };
 
@@ -43,7 +43,7 @@ export default function ContactForm({ member }: { member: Member }) {
       <div
         className={`grid ${
           member.linkedIn ? "grid-cols-2" : "grid-cols-1"
-        } place-items-center gap-x-12 sm:gap-x-0 sm:max-w-115 mb-4`}
+        } place-items-center gap-x-40 sm:gap-x-0 sm:max-w-115 mb-4`}
       >
         <div className="cursor-pointer">
           <Link
@@ -51,7 +51,7 @@ export default function ContactForm({ member }: { member: Member }) {
             className="flex items-center gap-2"
           >
             <Image
-              src="/logos/gmail.png"
+              src="/images/gmail.png"
               alt="Gmail icon"
               width={30}
               height={30}
@@ -63,7 +63,7 @@ export default function ContactForm({ member }: { member: Member }) {
           <div className="cursor-pointer sm:place-self-end">
             <Link href={member.linkedIn} className="flex items-center gap-2">
               <Image
-                src="/logos/linkedIn.png"
+                src="/images/linkedIn.png"
                 alt="Linkedin icon"
                 width={30}
                 height={30}

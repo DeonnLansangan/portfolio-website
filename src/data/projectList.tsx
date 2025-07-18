@@ -4,7 +4,7 @@ export const projectList: Project[] = [
   {
     id: 1,
     name: "CyberSafe",
-    logo: "/logos/cyberSafeLogo.png",
+    logo: "/logos/cybersafeLogo.png",
     description:
       "An advanced filtering tool to create a safer experience on X.com (formerly Twitter).",
     color: "primary",

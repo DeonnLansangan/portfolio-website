@@ -10,10 +10,10 @@ const schema = z.object({
 });
 
 export async function sendEmail(
-  initialState: any,
+  initialState: { message: string },
   formData: FormData,
   member: Member
-) {
+): Promise<{ message: string }> {
   const validatedFields = schema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
@@ -21,7 +21,7 @@ export async function sendEmail(
   });
 
   if (!validatedFields.success) {
-    return;
+    return { message: "Validation failed" };
   }
 
   const name = formData.get("name");
@@ -34,4 +34,6 @@ export async function sendEmail(
     body: JSON.stringify({ name, email, message, recipient }),
     headers: { "Content-Type": "application/json" },
   });
+
+  return { message: "Email sent successfully" };
 }

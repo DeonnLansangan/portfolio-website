@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Header from "@/components/layout/header";
+import Header from "@/components/sections/header";
 import "./globals.css";
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
@@ -10,7 +10,7 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
-import Footer from "@/components/layout/footer";
+import Footer from "@/components/sections/footer";
 
 export const metadata: Metadata = {
   title: "Portfolio Website",

@@ -27,6 +27,7 @@ export default function MemberExperience() {
             const endDate = experience.endDate;
             return (
               <Timeline.Item
+                key={experience.title + experience.company}
                 bullet={startDate.getFullYear()}
                 title={
                   <h3 className="text-2xl font-bold text-gray-800 -mb-2">

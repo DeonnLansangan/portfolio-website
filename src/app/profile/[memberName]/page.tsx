@@ -1,11 +1,11 @@
-import MemberDescription from "@/components/layout/memberPage/memberDescription";
+import MemberDescription from "@/components/sections/memberPage/memberDescription";
 import MemberProvider from "./MemberProvider";
 import { memberList } from "@/data/memberList";
 import { notFound } from "next/navigation";
-import MemberSkills from "@/components/layout/memberPage/memberSkills";
-import MemberExperience from "@/components/layout/memberPage/memberExperience";
-import MemberProjects from "@/components/layout/memberPage/memberProjects";
-import MemberContact from "@/components/layout/memberPage/memberContact";
+import MemberSkills from "@/components/sections/memberPage/memberSkills";
+import MemberExperience from "@/components/sections/memberPage/memberExperience";
+import MemberProjects from "@/components/sections/memberPage/memberProjects";
+import MemberContact from "@/components/sections/memberPage/memberContact";
 
 export default async function MemberPage({
   params,

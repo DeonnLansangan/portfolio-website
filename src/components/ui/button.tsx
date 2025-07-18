@@ -4,6 +4,7 @@ export default function Button({
   hover,
   type = "button",
   handleClick,
+  disabled,
   ...props
 }: {
   children: React.ReactNode;
@@ -11,7 +12,8 @@ export default function Button({
   hover: "inverted" | "tinted";
   type?: "submit" | "button";
   handleClick?: () => Promise<void>;
-  [key: string]: any;
+  disabled?: boolean;
+  [key: string]: unknown;
 }) {
   const hoverClasses = {
     inverted: {
@@ -31,7 +33,7 @@ export default function Button({
       className={`${hoverClasses[hover][color]} text-white shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 px-8 py-3 rounded-3xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}
       onClick={handleClick}
       type={type}
-      disabled={props.disabled}
+      disabled={disabled}
       {...props}
     >
       <span className="font-bold">{children}</span>

@@ -160,7 +160,7 @@ export const skillList: Skill[] = [
   {
     id: 27,
     name: "NextJS",
-    path: "/logos/nextJS.png",
+    path: "/logos/nextjs.png",
     category: ["🧠 Programming & Development"],
   },
   {
@@ -192,5 +192,11 @@ export const skillList: Skill[] = [
     name: "GitHub",
     path: "/logos/github.png",
     category: ["🗃️ Version Control & Collaboration"],
+  },
+  {
+    id: 33,
+    name: "TypeScript",
+    path: "/logos/typescript.png",
+    category: ["🧠 Programming & Development"],
   },
 ];

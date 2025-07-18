@@ -61,7 +61,7 @@ export default function Footer() {
           />
         </div>
         <p className="text-sm text-gray-600 text-center my-4 md:text-left md:order-2">
-          &copy; HAU Batch '24-'25 CS Graduates. All rights reserved.
+          &copy; HAU Batch &apos;24-&apos;25 CS Graduates. All rights reserved.
         </p>
       </div>
     </footer>
