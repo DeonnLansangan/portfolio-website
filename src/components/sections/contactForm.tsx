@@ -51,7 +51,7 @@ export default function ContactForm({ member }: { member: Member }) {
             className="flex items-center gap-2"
           >
             <Image
-              src="/images/gmail.png"
+              src="/logos/gmail.png"
               alt="Gmail icon"
               width={30}
               height={30}
@@ -63,7 +63,7 @@ export default function ContactForm({ member }: { member: Member }) {
           <div className="cursor-pointer sm:place-self-end">
             <Link href={member.linkedIn} className="flex items-center gap-2">
               <Image
-                src="/images/linkedIn.png"
+                src="/logos/linkedIn.png"
                 alt="Linkedin icon"
                 width={30}
                 height={30}
