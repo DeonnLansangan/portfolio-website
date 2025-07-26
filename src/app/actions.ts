@@ -29,11 +29,22 @@ export async function sendEmail(
   const message = formData.get("message");
   const recipient = member.email;
 
-  await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/send`, {
-    method: "POST",
-    body: JSON.stringify({ name, email, message, recipient }),
-    headers: { "Content-Type": "application/json" },
-  });
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/send`,
+      {
+        method: "POST",
+        body: JSON.stringify({ name, email, message, recipient }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
 
-  return { message: "Email sent successfully" };
+    if (!response.ok) {
+      throw new Error();
+    }
+
+    return { message: "Email sent successfully" };
+  } catch (error) {
+    return { message: "Error sending message" };
+  }
 }

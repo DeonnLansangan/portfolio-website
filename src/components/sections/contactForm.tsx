@@ -12,7 +12,13 @@ const initialState = {
   message: "",
 };
 
-export default function ContactForm({ member }: { member: Member }) {
+export default function ContactForm({
+  member,
+  showLabel = false,
+}: {
+  member: Member;
+  showLabel?: boolean;
+}) {
   const wrappedSendEmail = async (
     prevState: { message: string },
     formData: FormData
@@ -29,51 +35,55 @@ export default function ContactForm({ member }: { member: Member }) {
 
   useEffect(() => {
     if (wasPending.current && !isPending) {
-      notifications.show({
-        title: "Message sent!",
-        message: "Your email has been successfully delivered.",
-        color: "green",
-        autoClose: 3000,
-      });
+      if (state.message === "Email sent successfully") {
+        notifications.show({
+          title: "Message sent!",
+          message: "Your email has been successfully delivered.",
+          color: "green",
+          autoClose: 3000,
+        });
+      } else {
+        notifications.show({
+          title: "Message failed",
+          message: state.message || "Something went wrong. Please try again.",
+          color: "red",
+          autoClose: 3000,
+        });
+      }
     }
     wasPending.current = isPending;
-  }, [isPending]);
+  }, [isPending, state.message]);
   return (
-    <>
-      <div
-        className={`grid ${
-          member.linkedIn ? "grid-cols-2" : "grid-cols-1"
-        } place-items-center gap-x-40 sm:gap-x-0 sm:max-w-115 mb-4`}
-      >
+    <div className="flex flex-col max-w-100">
+      <div className="flex justify-between mb-4">
         <div className="cursor-pointer">
-          <Link
-            href={`mailto:${member.email}`}
-            className="flex items-center gap-2"
-          >
+          <Link href={`mailto:${member.email}`} className="flex gap-2">
             <Image
               src="/logos/gmail.png"
               alt="Gmail icon"
               width={30}
               height={30}
             ></Image>
-            <p className="hidden sm:block">{member.email}</p>
+            <p className={`hidden ${showLabel && "sm:block"}`}>
+              {member.email}
+            </p>
           </Link>
         </div>
         {member.linkedIn && (
-          <div className="cursor-pointer sm:place-self-end">
-            <Link href={member.linkedIn} className="flex items-center gap-2">
+          <div className="cursor-pointer">
+            <Link href={member.linkedIn} className="flex gap-2">
               <Image
                 src="/logos/linkedIn.png"
                 alt="Linkedin icon"
                 width={30}
                 height={30}
               ></Image>
-              <p className="hidden sm:block">LinkedIn</p>
+              <p className={`hidden ${showLabel && "sm:block"}`}>LinkedIn</p>
             </Link>
           </div>
         )}
       </div>
-      <form action={formAction} className="flex flex-col gap-4 px-4">
+      <form action={formAction} className="flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-x-1">
           <input
             type="text"
@@ -99,7 +109,6 @@ export default function ContactForm({ member }: { member: Member }) {
           className="bg-white border border-gray-500 min-h-50 rounded-lg p-2"
           required
         />
-        <p aria-live="polite">{state?.message}</p>
         <Button
           type="submit"
           hover="tinted"
@@ -109,6 +118,6 @@ export default function ContactForm({ member }: { member: Member }) {
           {isPending ? "Sending Message" : "Send Message"}
         </Button>
       </form>
-    </>
+    </div>
   );
 }

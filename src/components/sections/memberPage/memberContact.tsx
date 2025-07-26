@@ -12,7 +12,9 @@ export default function MemberContact() {
       className="flex flex-col items-center bg-gray-100 pt-8 pb-20"
     >
       <Head>Contact Me</Head>
-      <ContactForm member={member} />
+      <div className="px-4">
+        <ContactForm member={member} showLabel={true} />
+      </div>
     </section>
   );
 }

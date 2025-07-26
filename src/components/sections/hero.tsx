@@ -1,28 +1,24 @@
-import { Center } from "@mantine/core";
-import { Montserrat } from "next/font/google";
-import Button from "../ui/button";
+import Circle from "../ui/circle";
+import Head from "../ui/head";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
-
-export default function Hero() {
+export default function Hero({
+  header,
+  subheader,
+  paragraph,
+}: {
+  header: string;
+  subheader?: string;
+  paragraph?: string;
+}) {
   return (
-    <section className="bg-linear-135 from-secondary to-azure min-h-screen px-32 py-48 md:py-60 text-center">
-      <Center>
-        <div className="">
-          <h1
-            className={`text-5xl/14 lg:text-6xl ${montserrat.className} font-bold mb-8`}
-          >
-            Welcome to Our Portfolio
-          </h1>
-          <p className="text-white text-base md:text-lg lg:text-xl mb-12">
-            Discover our innovative projects and meet the passionate team
-            driving our success. Dive in to explore our work and achievements!
-          </p>
-          <Button color="secondary" hover="inverted">
-            Learn More
-          </Button>
-        </div>
-      </Center>
+    <section className="bg-linear-135 from-primary to-azure mx-1 rounded-lg pt-8 pb-12 px-2 sm:px-20 lg:px-32 xl:px-80 text-center relative">
+      <Head>{header}</Head>
+      <h3 className="text-gray-200 px-4 text-lg md:text-xl font-medium">
+        {subheader}
+      </h3>
+      <p className="text-white font-light mt-8">{paragraph}</p>
+      <Circle position="top-right" />
+      <Circle position="bottom-left" />
     </section>
   );
 }

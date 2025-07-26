@@ -1,11 +1,13 @@
 import { EmailTemplate } from "@/components/email-template";
 import { Resend } from "resend";
+import { validateContactFormBody } from "@/lib/middleware";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message, recipient } = await req.json();
+    const { name, email, message, recipient } =
+      await validateContactFormBody(req);
 
     const { data, error } = await resend.emails.send({
       from: "Portfolio Website <portfolio@hau-cs-graduates.com>",
@@ -18,11 +20,18 @@ export async function POST(req: Request) {
       return new Response(JSON.stringify({ error }), { status: 500 });
     }
 
-    return new Response(JSON.stringify(data));
+    return new Response(
+      JSON.stringify({ message: "Email sent successfully" }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
     if (error instanceof Error) {
       return new Response(JSON.stringify({ error: error.message }), {
         status: 500,
+        headers: { "Content-Type": "application/json" },
       });
     }
   }

@@ -1,3 +1,16 @@
+import Hero from "@/components/sections/hero";
+
+import ContactForm from "@/components/sections/contactForm";
+import Members from "@/components/sections/members";
+
 export default function Contact() {
-  return <h2>Contact Us Page</h2>;
+  return (
+    <>
+      <Hero
+        header="Contact Us"
+        subheader="For any inquiries or work, contact us through the links and forms below."
+      />
+      <Members showContact={true} align="start" />
+    </>
+  );
 }
