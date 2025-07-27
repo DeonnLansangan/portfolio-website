@@ -10,14 +10,7 @@ export default function Projects() {
         className={`p-10 flex flex-col md:flex-row items-center justify-center gap-16`}
       >
         {projectList.map((project) => (
-          <ProjectCard
-            key={project.id}
-            name={project.name}
-            filePath={project.logo}
-            description={project.description}
-            color={project.color}
-            priority={project.priority}
-          />
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </section>

@@ -33,9 +33,13 @@ export interface MemberExperience {
 export interface Project {
   id: number;
   name: string;
+  altName?: string;
+  url: string;
   logo: string;
-  description: string;
-  color: "primary" | "secondary" | "maroon";
+  title: string;
+  cardDescription: string;
+  pageDescription: string;
+  color: "primary" | "maroon";
   priority: boolean;
   createdBy: number[];
 }

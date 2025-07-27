@@ -9,6 +9,7 @@ interface MemberCardProps {
   showContact: boolean;
   member: Member;
   align: "start" | "center";
+  color?: "primary" | "maroon";
 }
 
 function ProfileLink({
@@ -54,12 +55,18 @@ function CardContent({
   showContact,
   member,
   align = "center",
+  color = "primary",
 }: MemberCardProps) {
+  const colorClasses = {
+    primary: "text-primary",
+    maroon: "text-maroon",
+  };
   const profilePicture = (
     <ProfilePicture
       name={member.name}
       path={member.profilePicture}
       size="small"
+      color={color}
     />
   );
   return (
@@ -71,7 +78,7 @@ function CardContent({
       )}
 
       <h3
-        className={`mt-4 ${showContact ? "text-sm mb-24" : "text-xl/10"} text-center ${align === "start" && "sm:text-left"} text-primary font-bold`}
+        className={`mt-4 ${showContact ? "text-sm mb-24" : "text-xl/10"} text-center ${align === "start" && "sm:text-left"} ${colorClasses[color]} font-bold`}
       >
         {member.name}
       </h3>
@@ -83,6 +90,7 @@ export default function MemberCard({
   showContact = false,
   member,
   align,
+  color = "primary",
 }: MemberCardProps) {
   return (
     <>
@@ -92,6 +100,7 @@ export default function MemberCard({
             showContact={showContact}
             member={member}
             align={align}
+            color={color}
           />
           <div className="place-self-end -mt-12 lg:-mt-16">
             <ContactForm member={member} />
@@ -104,6 +113,7 @@ export default function MemberCard({
               showContact={showContact}
               member={member}
               align={align}
+              color={color}
             />
           </MemberCardContainer>
         </ProfileLink>

@@ -19,14 +19,7 @@ export default function MemberProjects() {
         {projectList.map(
           (project) =>
             project.createdBy.includes(member.id) && (
-              <ProjectCard
-                key={project.id}
-                name={project.name}
-                filePath={project.logo}
-                description={project.description}
-                color={project.color}
-                priority={project.priority}
-              />
+              <ProjectCard key={project.id} project={project} />
             )
         )}
       </div>
