@@ -29,7 +29,7 @@ export default function Footer() {
     {
       title: "Legal",
       items: ["Terms & Conditions", "Privacy Policy"],
-      hrefs: ["/aboutUs", "/contact"],
+      hrefs: ["/terms", "/privacyPolicy"],
     },
   ];
 

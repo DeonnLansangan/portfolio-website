@@ -40,7 +40,7 @@ export const memberList = [
           "• Developed websites for multiple clients using different frameworks such as React, Express, and Laravel.",
       },
       {
-        title: "Full Stack Developer Intern",
+        title: "Full Stack Developer Intern (OJT)",
         company: "Holy Angel University - Angeles City",
         startDate: new Date("2024-11-20"),
         endDate: new Date("2025-03-19"),

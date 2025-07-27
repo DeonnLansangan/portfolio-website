@@ -1,6 +1,4 @@
 import Hero from "@/components/sections/hero";
-
-import ContactForm from "@/components/sections/contactForm";
 import Members from "@/components/sections/members";
 
 export default function Contact() {
