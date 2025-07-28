@@ -19,9 +19,9 @@ export default function Members({
 }) {
   const gridColumns: { [key: number]: string } = {
     1: "grid-cols-1",
-    2: "grid-cols-1 sm:grid-cols-2",
-    3: "grid-cols-1 sm:grid-cols-3",
-    4: "grid-cols-1 sm:grid-cols-2 xl:grid-cols-4",
+    2: "grid-cols-1 md:grid-cols-2",
+    3: "grid-cols-1 md:grid-cols-3",
+    4: "grid-cols-1 md:grid-cols-2 xl:grid-cols-4",
   };
   return (
     <section id="members" className="py-12 bg-gray-200">
@@ -30,7 +30,7 @@ export default function Members({
         {subheader}
       </p>
       <div
-        className={`p-10 grid ${gridColumns[selectedMembers ? selectedMembers.length : 4]} place-items-center gap-12 sm:gap-40 md:gap-20 lg:gap-8`}
+        className={`p-10 grid ${gridColumns[selectedMembers ? selectedMembers.length : 4]} place-items-center gap-12 md:gap-20 lg:gap-8`}
       >
         {selectedMembers
           ? memberList

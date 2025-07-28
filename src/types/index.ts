@@ -1,3 +1,5 @@
+import { IconName } from "@/components/ui/icon";
+
 export interface Skill {
   id: number;
   name: string;
@@ -39,7 +41,14 @@ export interface Project {
   title: string;
   cardDescription: string;
   pageDescription: string;
+  features: Feature[];
   color: "primary" | "maroon";
   priority: boolean;
   createdBy: number[];
+}
+
+export interface Feature {
+  icon: IconName;
+  title: string;
+  description: string;
 }
