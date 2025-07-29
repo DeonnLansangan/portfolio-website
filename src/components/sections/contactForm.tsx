@@ -5,11 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Button from "../ui/button";
 import { sendEmail } from "@/app/actions";
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, startTransition } from "react";
 import { notifications } from "@mantine/notifications";
 
 const initialState = {
   message: "",
+  errors: undefined,
 };
 
 export default function ContactForm({
@@ -20,9 +21,9 @@ export default function ContactForm({
   showLabel?: boolean;
 }) {
   const wrappedSendEmail = async (
-    prevState: { message: string },
+    prevState: { message: string; errors?: Record<string, string[]> },
     formData: FormData
-  ): Promise<{ message: string }> => {
+  ): Promise<{ message: string; errors?: Record<string, string[]> }> => {
     return sendEmail(prevState, formData, member);
   };
 
@@ -32,6 +33,19 @@ export default function ContactForm({
   );
 
   const wasPending = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (formRef.current) {
+        const formData = new FormData(formRef.current);
+        startTransition(() => {
+          formAction(formData);
+        });
+      }
+    }
+  };
 
   useEffect(() => {
     if (wasPending.current && !isPending) {
@@ -83,14 +97,17 @@ export default function ContactForm({
           </div>
         )}
       </div>
-      <form action={formAction} className="flex flex-col gap-4">
+      <form ref={formRef} action={formAction} className="flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-x-1">
           <input
             type="text"
             id="name"
             name="name"
             placeholder="Your Name"
-            className="bg-white border border-gray-500 rounded-xl p-2"
+            className={`bg-white border rounded-xl p-2 ${
+              state.errors?.name ? "border-red-500" : "border-gray-500"
+            }`}
+            onKeyDown={handleKeyDown}
             required
           />
           <input
@@ -98,17 +115,40 @@ export default function ContactForm({
             id="email"
             name="email"
             placeholder="Your Email"
-            className="bg-white border border-gray-500 rounded-xl p-2"
+            className={`bg-white border rounded-xl p-2 ${
+              state.errors?.email ? "border-red-500" : "border-gray-500"
+            }`}
+            onKeyDown={handleKeyDown}
             required
           />
         </div>
+        {(state.errors?.name || state.errors?.email) && (
+          <div className="grid grid-cols-2 gap-x-1 -mt-2">
+            <div>
+              {state.errors?.name && (
+                <p className="text-red-500 text-sm">{state.errors.name[0]}</p>
+              )}
+            </div>
+            <div>
+              {state.errors?.email && (
+                <p className="text-red-500 text-sm">{state.errors.email[0]}</p>
+              )}
+            </div>
+          </div>
+        )}
         <textarea
           id="message"
           name="message"
           placeholder="Your Message"
-          className="bg-white border border-gray-500 min-h-50 rounded-lg p-2"
+          className={`bg-white border min-h-50 rounded-lg p-2 ${
+            state.errors?.message ? "border-red-500" : "border-gray-500"
+          }`}
+          onKeyDown={handleKeyDown}
           required
         />
+        {state.errors?.message && (
+          <p className="text-red-500 text-sm -mt-2">{state.errors.message[0]}</p>
+        )}
         <Button
           type="submit"
           hover="tinted"
