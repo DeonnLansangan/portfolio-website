@@ -53,8 +53,8 @@ export default function Footer() {
         <p className="mt-8 xl:mt-4 text-gray-800 font-semibold">Powered by</p>
         <div className="relative w-24 h-24 mx-auto -my-4 md:mx-0">
           <Image
-            src="/logos/aws-logo.png"
-            alt="AWS Logo"
+            src="/logos/vercel.png"
+            alt="Vercel Logo"
             sizes="100%"
             fill
             className="object-contain"
