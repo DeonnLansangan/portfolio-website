@@ -5,12 +5,12 @@ import { skillList } from "@/data/skillList";
 import { useMemberStore } from "@/store/memberStore";
 import Head from "@/components/ui/head";
 import Skill from "@/components/ui/skill";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { useMeasureHeight } from "@/hooks/useMeasureHeight";
 
 export default function MemberSkills() {
   const member = useMemberStore((state) => state.member);
   const allTabRef = useRef<HTMLDivElement>(null);
-  const [minHeight, setMinHeight] = useState(0);
 
   const skillsWithMeta = member?.skills
     ? member.skills
@@ -29,6 +29,8 @@ export default function MemberSkills() {
 
   const sortedSkills = skillsWithMeta.sort((a, b) => a.order - b.order);
 
+  const minHeight = useMeasureHeight(allTabRef, [sortedSkills]);
+
   const uniqueCategories = Array.from(
     new Set(
       sortedSkills
@@ -36,21 +38,6 @@ export default function MemberSkills() {
         .filter((category): category is string => typeof category === "string")
     )
   );
-
-  useEffect(() => {
-    const measureHeight = () => {
-      if (allTabRef.current) {
-        const height = allTabRef.current.offsetHeight;
-        setMinHeight(height);
-      }
-    };
-
-    measureHeight();
-
-    window.addEventListener("resize", measureHeight);
-
-    return () => window.removeEventListener("resize", measureHeight);
-  }, [sortedSkills]);
 
   if (!member) return null;
 
