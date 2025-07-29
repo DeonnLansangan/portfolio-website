@@ -4,16 +4,16 @@ import { Member } from "@/types";
 import { z } from "zod";
 
 const schema = z.object({
-  name: z.string("Invalid Name"),
-  email: z.email("Invalid Email"),
-  message: z.string("Invalid Message"),
+  name: z.string().min(1, "Name is required"),
+  email: z.email("Invalid email address"),
+  message: z.string().min(1, "Message is required"),
 });
 
 export async function sendEmail(
-  initialState: { message: string },
+  initialState: { message: string; errors?: Record<string, string[]> },
   formData: FormData,
   member: Member
-): Promise<{ message: string }> {
+): Promise<{ message: string; errors?: Record<string, string[]> }> {
   const validatedFields = schema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
@@ -21,7 +21,10 @@ export async function sendEmail(
   });
 
   if (!validatedFields.success) {
-    return { message: "Validation failed" };
+    return {
+      message: "Validation failed",
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
   }
 
   const name = formData.get("name");
@@ -45,6 +48,6 @@ export async function sendEmail(
 
     return { message: "Email sent successfully" };
   } catch (error) {
-    return { message: `Error sending message, ${error}` };
+    return { message: `${error} sending message` };
   }
 }
