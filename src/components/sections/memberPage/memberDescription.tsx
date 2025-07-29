@@ -19,6 +19,7 @@ export default function MemberDescription() {
           name={member.name}
           path={member.profilePicture}
           size={isLargeScreen ? "xl" : "large"}
+          color="primary"
         />
       </div>
       <div className="text-center xl:text-left xl:col-span-2">

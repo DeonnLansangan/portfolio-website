@@ -45,6 +45,6 @@ export async function sendEmail(
 
     return { message: "Email sent successfully" };
   } catch (error) {
-    return { message: "Error sending message" };
+    return { message: `Error sending message, ${error}` };
   }
 }
