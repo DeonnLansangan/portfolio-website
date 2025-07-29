@@ -23,7 +23,17 @@ export default function ContactForm({
     prevState: { message: string },
     formData: FormData
   ): Promise<{ message: string }> => {
-    return sendEmail(prevState, formData, member);
+    console.log("📝 [Client] Form submission started for member:", member.name);
+    console.log("📝 [Client] Form data:", {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      messageLength: formData.get("message")?.toString().length,
+    });
+
+    const result = await sendEmail(prevState, formData, member);
+    console.log("📝 [Client] Server action result:", result);
+
+    return result;
   };
 
   const [state, formAction, isPending] = useActionState(
@@ -35,6 +45,11 @@ export default function ContactForm({
 
   useEffect(() => {
     if (wasPending.current && !isPending) {
+      console.log("📝 [Client] Form submission completed:", {
+        success: state.message === "Email sent successfully",
+        message: state.message,
+      });
+
       if (state.message === "Email sent successfully") {
         notifications.show({
           title: "Message sent!",

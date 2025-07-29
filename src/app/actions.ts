@@ -14,13 +14,24 @@ export async function sendEmail(
   formData: FormData,
   member: Member
 ): Promise<{ message: string }> {
+  console.log("🚀 [Server Action] sendEmail called with:", {
+    memberEmail: member.email,
+    formDataKeys: Array.from(formData.keys()),
+  });
+
   const validatedFields = schema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
     message: formData.get("message"),
   });
 
+  console.log("📝 [Server Action] Validation result:", {
+    success: validatedFields.success,
+    errors: validatedFields.success ? null : validatedFields.error.flatten(),
+  });
+
   if (!validatedFields.success) {
+    console.log("❌ [Server Action] Validation failed");
     return { message: "Validation failed" };
   }
 
@@ -28,6 +39,14 @@ export async function sendEmail(
   const email = formData.get("email");
   const message = formData.get("message");
   const recipient = member.email;
+
+  console.log("📧 [Server Action] Preparing to send email:", {
+    name,
+    email,
+    recipient,
+    messageLength: message?.toString().length,
+    apiUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/api/send`,
+  });
 
   try {
     const response = await fetch(
@@ -39,12 +58,20 @@ export async function sendEmail(
       }
     );
 
+    console.log("🌐 [Server Action] API Response status:", response.status);
+
     if (!response.ok) {
-      throw new Error();
+      const errorText = await response.text();
+      console.log("❌ [Server Action] API Response error:", errorText);
+      throw new Error(`API returned ${response.status}: ${errorText}`);
     }
+
+    const responseData = await response.json();
+    console.log("✅ [Server Action] Email sent successfully:", responseData);
 
     return { message: "Email sent successfully" };
   } catch (error) {
+    console.log("💥 [Server Action] Error in sendEmail:", error);
     return { message: `Error sending message, ${error}` };
   }
 }
