@@ -44,7 +44,7 @@ function MemberCardContainer({
 }) {
   return (
     <div
-      className={`flex flex-col items-center ${align === "start" && "sm:items-start"} bg-white max-w-80 h-full p-10 rounded-lg hover:-translate-y-2 shadow-xl hover:shadow-2xl transition duration-300`}
+      className={`flex flex-col items-center ${align === "start" && "sm:items-start"} bg-white min-w-50 max-w-80 h-full p-10 rounded-lg hover:-translate-y-2 shadow-xl hover:shadow-2xl transition duration-300`}
     >
       {children}
     </div>

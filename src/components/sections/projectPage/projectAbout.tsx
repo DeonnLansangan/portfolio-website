@@ -1,6 +1,7 @@
 "use client";
 import FeatureCard from "@/components/cards/featureCard";
 import Head from "@/components/ui/head";
+import ProjectContainer from "./projectContainer";
 import { useProjectStore } from "@/store/projectStore";
 
 export default function ProjectAbout() {
@@ -12,12 +13,12 @@ export default function ProjectAbout() {
   if (!project) return;
 
   return (
-    <section className="flex flex-col items-center py-36">
+    <ProjectContainer>
       <Head>
         About{" "}
         <span className={colorClasses[project.color]}>{project.name}</span>
       </Head>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+      <div className="text-left grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
         {project.features.map((feature) => (
           <FeatureCard
             key={feature.title}
@@ -27,6 +28,6 @@ export default function ProjectAbout() {
           />
         ))}
       </div>
-    </section>
+    </ProjectContainer>
   );
 }
