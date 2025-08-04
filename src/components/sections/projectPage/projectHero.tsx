@@ -1,6 +1,7 @@
 "use client";
 import Button from "@/components/ui/button";
 import ProjectLogo from "@/components/ui/projectLogo";
+import ProjectContainer from "./projectContainer";
 import { useProjectStore } from "@/store/projectStore";
 
 export default function ProjectHero() {
@@ -35,7 +36,7 @@ export default function ProjectHero() {
     );
   };
   return (
-    <section className="flex flex-col items-center text-center py-36">
+    <ProjectContainer padding="large">
       <ProjectLogo project={project} size="lg" />
       <h1
         className={`mt-4 text-3xl/14 2xl:text-4xl/14 px-4 sm:px-40 lg:px-92 xl:px-120 2xl:px-150 font-bold`}
@@ -48,6 +49,6 @@ export default function ProjectHero() {
       <Button type="button" color={project.color} hover="inverted">
         Learn More
       </Button>
-    </section>
+    </ProjectContainer>
   );
 }

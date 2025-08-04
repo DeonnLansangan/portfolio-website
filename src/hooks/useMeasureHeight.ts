@@ -33,7 +33,7 @@ export function useMeasureHeight<T extends HTMLElement>(
     window.addEventListener("resize", measureHeight);
 
     return () => window.removeEventListener("resize", measureHeight);
-  }, [measureHeight, ref, ...dependencies]);
+  }, [measureHeight, ref, dependencies]);
 
   return minHeight;
 }

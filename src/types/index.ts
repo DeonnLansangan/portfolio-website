@@ -42,6 +42,8 @@ export interface Project {
   cardDescription: string;
   pageDescription: string;
   features: Feature[];
+  demoVid?: string;
+  isDisabled?: boolean;
   color: "primary" | "maroon";
   priority: boolean;
   createdBy: number[];

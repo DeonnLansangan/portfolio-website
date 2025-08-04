@@ -36,6 +36,8 @@ export const projectList: Project[] = [
           "CyberSafe continuously monitors your X feed in real-time, filtering out harmful posts and ensuring a safer experience as new content loads.",
       },
     ],
+    demoVid: "/videos/demoVid.mp4",
+    isDisabled: true,
     color: "primary",
     priority: true,
     createdBy: [1, 2, 3, 4],

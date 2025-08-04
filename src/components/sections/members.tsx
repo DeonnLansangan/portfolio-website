@@ -30,7 +30,7 @@ export default function Members({
         {subheader}
       </p>
       <div
-        className={`p-10 grid ${gridColumns[selectedMembers ? selectedMembers.length : 4]} place-items-center gap-12 md:gap-20 lg:gap-8`}
+        className={`p-10 grid ${gridColumns[selectedMembers ? selectedMembers.length : 4]} place-items-center gap-12 md:gap-28 lg:gap-8`}
       >
         {selectedMembers
           ? memberList
