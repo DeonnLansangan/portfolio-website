@@ -67,6 +67,7 @@ export const projectList: Project[] = [
           "Built on the robust Laravel framework, the system includes an onboard PRC Results scanner that automatically parses board exam results and supports management of employee research and publications.",
       },
     ],
+    images: ["/images/hau-website.png", "/images/prc-results.png"],
     color: "maroon",
     priority: false,
     createdBy: [1, 3, 4],

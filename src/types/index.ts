@@ -44,6 +44,7 @@ export interface Project {
   pageDescription: string;
   features: Feature[];
   demoVid?: string;
+  images?: string[];
   isDisabled?: boolean;
   color: "primary" | "maroon";
   priority: boolean;
