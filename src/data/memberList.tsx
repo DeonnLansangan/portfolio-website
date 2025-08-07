@@ -6,6 +6,8 @@ export const memberList = [
     profilePicture: "/profile-pictures/deonn-lansangan.png",
     description:
       "A highly motivated Computer Science graduate with hands-on experience in machine learning, software development, and web development. Looking to contribute technical and problem-solving skills to a dynamic team and grow in a challenging environment.",
+    resume:
+      "https://hau-cs-students-portfolio-bucket.s3.ap-southeast-1.amazonaws.com/resumes/20827844.pdf",
     email: "deonnlansangan@gmail.com",
     linkedIn:
       "https://www.linkedin.com/in/jules-albert-deonn-lansangan-ba867a30a/",
@@ -64,6 +66,8 @@ export const memberList = [
     profilePicture: "/profile-pictures/katherine-maglalang.jpeg",
     description:
       "A fourth-year student at Holy Angel University. I'm currently focused on front-end development and working on projects to enhance my skills.",
+    resume:
+      "https://hau-cs-students-portfolio-bucket.s3.ap-southeast-1.amazonaws.com/resumes/20827394.pdf",
     email: "kathr.maglalang@gmail.com",
     linkedIn: "https://www.linkedin.com/in/katherine-maglalang-8214a3337/",
     skills: [
@@ -104,6 +108,8 @@ export const memberList = [
     profilePicture: "/profile-pictures/katherine-medina.png",
     description:
       "A passionate Computer Science student with a unique blend of technical and artistic skills. As an emerging artist, I am leveraging my skills in character design and digital art, combining my knowledge of software development with creativity in visual arts. Skilled in using a variety of artistic tools such as ibisPaint, Krita, Adobe Express, and Photoshop Express, I aim to bring imaginative characters and concepts to life while also contributing to technical projects in a dynamic and collaborative environment.",
+    resume:
+      "https://hau-cs-students-portfolio-bucket.s3.ap-southeast-1.amazonaws.com/resumes/20886851.pdf",
     email: "iamkatmedina@gmail.com",
     linkedIn: "https://linkedin.com/in/katherine-ysabelle-medina-4525882b2",
     skills: [
@@ -170,6 +176,8 @@ export const memberList = [
     profilePicture: "/profile-pictures/aireesh-pineda.jpg",
     description:
       "A dedicated Computer Science student with a passion for technology and design. I am eager to develop my programming skills while leveraging my foundational computer knowledge. I thrive on collaborative projects and I am committed to learning how to create engaging user experiences through web development and graphic design.",
+    resume:
+      "https://hau-cs-students-portfolio-bucket.s3.ap-southeast-1.amazonaws.com/resumes/20694238.png",
     email: "aireeshpineda2@gmail.com",
     linkedIn: null,
     skills: [
