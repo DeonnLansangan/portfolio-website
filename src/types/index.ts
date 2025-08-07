@@ -13,6 +13,7 @@ export interface Member {
   username: string;
   profilePicture: string;
   description: string;
+  resume: string;
   email: string | null;
   linkedIn: string | null;
   skills: MemberSkill[];
