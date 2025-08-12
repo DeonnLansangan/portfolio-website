@@ -6,14 +6,14 @@ import { useProjectStore } from "@/store/projectStore";
 
 export default function ProjectAbout() {
   const project = useProjectStore((state) => state.project);
+  if (!project) return;
   const colorClasses = {
     primary: "text-primary",
     maroon: "text-maroon",
   };
-  if (!project) return;
 
   return (
-    <ProjectContainer>
+    <ProjectContainer id="about">
       <Head>
         About{" "}
         <span className={colorClasses[project.color]}>{project.name}</span>

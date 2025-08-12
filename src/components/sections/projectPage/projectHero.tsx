@@ -2,6 +2,7 @@
 import Button from "@/components/ui/button";
 import ProjectLogo from "@/components/ui/projectLogo";
 import ProjectContainer from "./projectContainer";
+import Link from "next/link";
 import { useProjectStore } from "@/store/projectStore";
 
 export default function ProjectHero() {
@@ -46,9 +47,11 @@ export default function ProjectHero() {
       <p className="text-gray-800 text-lg/8 mt-4 mb-12 px-4 sm:px-40 lg:px-92 xl:px-120 2xl:px-150">
         {project.pageDescription}
       </p>
-      <Button type="button" color={project.color} hover="inverted">
-        Learn More
-      </Button>
+      <Link href="#about">
+        <Button type="button" color={project.color} hover="inverted">
+          Learn More
+        </Button>
+      </Link>
     </ProjectContainer>
   );
 }
