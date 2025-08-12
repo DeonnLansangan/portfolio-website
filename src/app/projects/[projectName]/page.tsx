@@ -5,6 +5,7 @@ import ProjectHero from "@/components/sections/projectPage/projectHero";
 import Members from "@/components/sections/members";
 import ProjectAbout from "@/components/sections/projectPage/projectAbout";
 import ProjectDemoVid from "@/components/sections/projectPage/projectVideo";
+import ProjectScreenshots from "@/components/sections/projectPage/projectScreenshots";
 
 export default async function ProjectPage({
   params,
@@ -20,6 +21,7 @@ export default async function ProjectPage({
       <ProjectProvider project={project}>
         <ProjectHero />
         <ProjectAbout />
+        {project.images && <ProjectScreenshots />}
         {project.demoVid && <ProjectDemoVid />}
         <div className="px-20 xl:px-40">
           <Members
