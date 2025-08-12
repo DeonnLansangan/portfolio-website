@@ -199,4 +199,10 @@ export const skillList: Skill[] = [
     path: "/logos/typescript.png",
     category: ["🧠 Programming & Development"],
   },
+  {
+    id: 34,
+    name: "React Native",
+    path: "/logos/reactNative.svg",
+    category: ["🧠 Programming & Development"],
+  },
 ];

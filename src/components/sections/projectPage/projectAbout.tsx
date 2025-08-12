@@ -13,7 +13,7 @@ export default function ProjectAbout() {
   if (!project) return;
 
   return (
-    <ProjectContainer>
+    <ProjectContainer id="about">
       <Head>
         About{" "}
         <span className={colorClasses[project.color]}>{project.name}</span>
