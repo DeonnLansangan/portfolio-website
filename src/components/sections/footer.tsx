@@ -23,8 +23,8 @@ export default function Footer() {
   const footerSections = [
     {
       title: "About Us",
-      items: ["Members", "Projects", "Contact"],
-      hrefs: ["/aboutUs", "/aboutUs", "/contact"],
+      items: ["Members", "Contact"],
+      hrefs: ["/aboutUs", "/contact"],
     },
     {
       title: "Legal",
