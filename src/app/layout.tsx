@@ -17,7 +17,7 @@ import { headers } from "next/headers";
 export const metadata: Metadata = {
   title: "Portfolio Website",
   description:
-    "Discover the projects created by 2024 -2025 Computer Science graduates of Holy Angel University",
+    "Discover the projects created by 2024 - 2025 Computer Science graduates of Holy Angel University",
 };
 
 const inter = Inter({ subsets: ["latin"] });
