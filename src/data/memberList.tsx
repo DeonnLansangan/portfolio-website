@@ -38,7 +38,7 @@ export const memberList = [
         title: "Full Stack Developer Trainee",
         company: "Fullstack HQ",
         startDate: new Date("2025-05-05"),
-        endDate: "Present",
+        endDate: new Date("2025-08-15"),
         description:
           "• Developed websites and applications using different technologies such as React, Express, Laravel, and React Native.",
       },
