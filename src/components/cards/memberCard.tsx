@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Member } from "@/types";
 import { useMemberStore } from "@/store/memberStore";
 import ContactForm from "../sections/contactForm";
+import FadeIn from "../ui/fadeIn";
 
 interface MemberCardProps {
   showContact: boolean;
@@ -93,7 +94,7 @@ export default function MemberCard({
   color = "primary",
 }: MemberCardProps) {
   return (
-    <>
+    <FadeIn>
       {showContact ? (
         <MemberCardContainer align="start">
           <CardContent
@@ -118,6 +119,6 @@ export default function MemberCard({
           </MemberCardContainer>
         </ProfileLink>
       )}
-    </>
+    </FadeIn>
   );
 }

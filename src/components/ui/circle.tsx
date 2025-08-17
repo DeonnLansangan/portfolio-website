@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "motion/react";
+
 export default function Circle({
   position,
 }: {
@@ -8,8 +11,16 @@ export default function Circle({
     "bottom-left": "bottom-0 left-0",
   };
   return (
-    <div
+    <motion.div
+      initial={{ y: 0 }}
+      animate={{ y: [0, -20, 0] }}
+      transition={{
+        duration: 4,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "reverse",
+      }}
       className={`bg-azure opacity-25 w-20 h-20 rounded-full absolute ${positionClasses[position]}`}
-    ></div>
+    ></motion.div>
   );
 }

@@ -4,6 +4,7 @@ import ProjectLogo from "@/components/ui/projectLogo";
 import ProjectContainer from "./projectContainer";
 import Link from "next/link";
 import { useProjectStore } from "@/store/projectStore";
+import FadeIn from "@/components/ui/fadeIn";
 
 export default function ProjectHero() {
   const project = useProjectStore((state) => state.project);
@@ -37,21 +38,24 @@ export default function ProjectHero() {
     );
   };
   return (
-    <ProjectContainer padding="large">
-      <ProjectLogo project={project} size="lg" />
-      <h1
-        className={`mt-4 text-3xl/14 2xl:text-4xl/14 px-4 sm:px-40 lg:px-92 xl:px-120 2xl:px-150 font-bold`}
-      >
-        {renderTitle()}
-      </h1>
-      <p className="text-gray-800 text-lg/8 mt-4 mb-12 px-4 sm:px-40 lg:px-92 xl:px-120 2xl:px-150">
-        {project.pageDescription}
-      </p>
-      <Link href="#about">
-        <Button type="button" color={project.color} hover="inverted">
-          Learn More
-        </Button>
-      </Link>
-    </ProjectContainer>
+    <FadeIn>
+      <ProjectContainer padding="large">
+        <ProjectLogo project={project} size="lg" />
+
+        <h1
+          className={`mt-4 text-3xl/14 2xl:text-4xl/14 px-4 sm:px-40 lg:px-92 xl:px-120 2xl:px-150 font-bold`}
+        >
+          {renderTitle()}
+        </h1>
+        <p className="text-gray-800 text-lg/8 mt-4 mb-12 px-4 sm:px-40 lg:px-92 xl:px-120 2xl:px-150">
+          {project.pageDescription}
+        </p>
+        <Link href="#about">
+          <Button type="button" color={project.color} hover="inverted">
+            Learn More
+          </Button>
+        </Link>
+      </ProjectContainer>
+    </FadeIn>
   );
 }
