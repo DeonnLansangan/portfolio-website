@@ -7,6 +7,7 @@ import Head from "@/components/ui/head";
 import Skill from "@/components/ui/skill";
 import { useRef } from "react";
 import { useMeasureHeight } from "@/hooks/useMeasureHeight";
+import FadeIn from "@/components/ui/fadeIn";
 
 export default function MemberSkills() {
   const member = useMemberStore((state) => state.member);
@@ -50,14 +51,16 @@ export default function MemberSkills() {
 
       <Tabs color="blue" defaultValue="all">
         <div className="mb-4">
-          <Tabs.List justify="center">
-            <Tabs.Tab value="all">All</Tabs.Tab>
-            {uniqueCategories.map((category) => (
-              <Tabs.Tab key={category} value={category}>
-                {category}
-              </Tabs.Tab>
-            ))}
-          </Tabs.List>
+          <FadeIn>
+            <Tabs.List justify="center">
+              <Tabs.Tab value="all">All</Tabs.Tab>
+              {uniqueCategories.map((category) => (
+                <Tabs.Tab key={category} value={category}>
+                  {category}
+                </Tabs.Tab>
+              ))}
+            </Tabs.List>
+          </FadeIn>
         </div>
 
         <div style={{ minHeight: minHeight > 0 ? `${minHeight}px` : "auto" }}>
@@ -67,7 +70,9 @@ export default function MemberSkills() {
               className={`grid grid-cols-1 place-items-center md:gap-x-2 lg:gap-x-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5`}
             >
               {sortedSkills.map((skill) => (
-                <Skill key={skill.id} name={skill.name} path={skill.path} />
+                <FadeIn key={skill.id}>
+                  <Skill name={skill.name} path={skill.path} />
+                </FadeIn>
               ))}
             </div>
           </Tabs.Panel>
@@ -78,7 +83,9 @@ export default function MemberSkills() {
                 {sortedSkills
                   .filter((skill) => skill.category.includes(category))
                   .map((skill) => (
-                    <Skill key={skill.id} name={skill.name} path={skill.path} />
+                    <FadeIn key={skill.id}>
+                      <Skill name={skill.name} path={skill.path} />
+                    </FadeIn>
                   ))}
               </div>
             </Tabs.Panel>

@@ -7,6 +7,7 @@ import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useProjectStore } from "@/store/projectStore";
 import { useState } from "react";
+import FadeIn from "@/components/ui/fadeIn";
 
 function ScreenshotCarousel({
   images,
@@ -22,27 +23,29 @@ function ScreenshotCarousel({
   imageSize?: { width: number; height: number };
 }) {
   return (
-    <Carousel
-      withIndicators
-      height="auto"
-      initialSlide={initialSlide}
-      emblaOptions={{ loop: true }}
-    >
-      {images.map((image, index) => (
-        <Carousel.Slide key={index}>
-          <div className="flex justify-center">
-            <Image
-              src={image}
-              alt={`${projectName} screenshot`}
-              width={imageSize.width}
-              height={imageSize.height}
-              className={onImageClick ? "cursor-pointer" : ""}
-              onClick={onImageClick ? () => onImageClick(index) : undefined}
-            />
-          </div>
-        </Carousel.Slide>
-      ))}
-    </Carousel>
+    <FadeIn>
+      <Carousel
+        withIndicators
+        height="auto"
+        initialSlide={initialSlide}
+        emblaOptions={{ loop: true }}
+      >
+        {images.map((image, index) => (
+          <Carousel.Slide key={index}>
+            <div className="flex justify-center">
+              <Image
+                src={image}
+                alt={`${projectName} screenshot`}
+                width={imageSize.width}
+                height={imageSize.height}
+                className={onImageClick ? "cursor-pointer" : ""}
+                onClick={onImageClick ? () => onImageClick(index) : undefined}
+              />
+            </div>
+          </Carousel.Slide>
+        ))}
+      </Carousel>
+    </FadeIn>
   );
 }
 
