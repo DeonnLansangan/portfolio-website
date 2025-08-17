@@ -44,11 +44,13 @@ function MemberCardContainer({
   children: React.ReactNode;
 }) {
   return (
-    <div
-      className={`flex flex-col items-center ${align === "start" && "sm:items-start"} bg-white min-w-50 max-w-80 h-full p-10 rounded-lg hover:-translate-y-2 shadow-xl hover:shadow-2xl transition duration-300`}
-    >
-      {children}
-    </div>
+    <FadeIn>
+      <div
+        className={`flex flex-col items-center ${align === "start" && "sm:items-start"} bg-white min-w-50 max-w-80 h-full p-10 rounded-lg hover:-translate-y-2 shadow-xl hover:shadow-2xl transition duration-300`}
+      >
+        {children}
+      </div>
+    </FadeIn>
   );
 }
 
@@ -94,7 +96,7 @@ export default function MemberCard({
   color = "primary",
 }: MemberCardProps) {
   return (
-    <FadeIn>
+    <>
       {showContact ? (
         <MemberCardContainer align="start">
           <CardContent
@@ -119,6 +121,6 @@ export default function MemberCard({
           </MemberCardContainer>
         </ProfileLink>
       )}
-    </FadeIn>
+    </>
   );
 }
