@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 export default function FadeIn({ children }: { children: ReactNode }) {
   return (
     <motion.div
-      className="h-full"
+      className=" h-full"
       initial={{ opacity: 0, translateY: 1 }}
       whileInView={{
         opacity: 1,

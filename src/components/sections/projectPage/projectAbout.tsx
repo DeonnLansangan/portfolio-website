@@ -3,7 +3,6 @@ import FeatureCard from "@/components/cards/featureCard";
 import Head from "@/components/ui/head";
 import ProjectContainer from "./projectContainer";
 import { useProjectStore } from "@/store/projectStore";
-import FadeIn from "@/components/ui/fadeIn";
 
 export default function ProjectAbout() {
   const project = useProjectStore((state) => state.project);
@@ -19,15 +18,14 @@ export default function ProjectAbout() {
         About{" "}
         <span className={colorClasses[project.color]}>{project.name}</span>
       </Head>
-      <div className="text-left grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+      <div className="text-left grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 items-stretch">
         {project.features.map((feature) => (
-          <FadeIn key={feature.title}>
-            <FeatureCard
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          </FadeIn>
+          <FeatureCard
+            key={feature.title}
+            icon={feature.icon}
+            title={feature.title}
+            description={feature.description}
+          />
         ))}
       </div>
     </ProjectContainer>
