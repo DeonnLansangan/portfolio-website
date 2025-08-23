@@ -35,7 +35,15 @@ export const memberList = [
     ],
     experience: [
       {
-        title: "Full Stack Developer Trainee",
+        title: "Web Developer",
+        company: "City College of Angeles",
+        startDate: new Date("2025-08-18"),
+        endDate: "present",
+        description:
+          "• Responsible for designing, building, and maintaining the company's website and software.",
+      },
+      {
+        title: "Web Developer Trainee",
         company: "Fullstack HQ",
         startDate: new Date("2025-05-05"),
         endDate: new Date("2025-08-15"),
