@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const cspHeader = `
-    default-src 'none';
-    script-src 'self' 'nonce-${nonce}';
+    default-src 'self';
+    script-src 'self' 'unsafe-inline';
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self';

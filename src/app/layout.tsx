@@ -12,7 +12,6 @@ import {
 } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import Footer from "@/components/sections/footer";
-import { headers } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Portfolio Website",
@@ -27,11 +26,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const nonce = (await headers()).get("x-nonce") ?? undefined;
   return (
     <html className="scroll-smooth" lang="en" {...mantineHtmlProps}>
       <head>
-        <ColorSchemeScript nonce={nonce} />
+        <ColorSchemeScript />
       </head>
       <body className={`${inter.className} antialiased`}>
         <MantineProvider>
